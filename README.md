@@ -13,9 +13,9 @@ Just clone the repo and open index.html.
 How to work on it?
 ------------------
 
-  $ npm install -g coffee-toaster
-  
-  $ toaster -dw
+  $ npm install
+
+  $ npm run start
 
 
 The app object
@@ -35,7 +35,7 @@ class App
     useCase      = new UseCase()
     gui          = new Gui()
     glue         = new Glue(useCase, gui)
-    
+
     useCase.start()
 
 new App()
@@ -49,7 +49,7 @@ At the heart of an application lives the use case object. Let's look at the use 
 ```coffeescript
 class UseCase
   constructor: ->
-    
+
   start: =>
     @askForName()
 
@@ -80,14 +80,14 @@ class Gui
     template = Handlebars.compile(source)
     html = template(data)
     element = $(html)
-  
+
   showAskForName: =>
     element = @createElementFor("#ask-for-name-template")
     $(".main").append(element)
     confirmNameButton = $("#confirm-name-button")
     confirmNameButton.click( => @confirmNameButtonClicked($("#name-input").val()))
     $("#name-input").focus()
-    
+
   confirmNameButtonClicked: (name) =>
 
   hideAskForName: =>
@@ -118,7 +118,7 @@ class Glue
     After(@useCase, "nameProvided", => @gui.hideAskForName())
     After(@useCase, "greetUser", (name) => @gui.showGreetMessage(name))
     After(@useCase, "restart", => @gui.hideGreetMessage())
-    
+
     After(@gui, "restartClicked", => @useCase.restart())
     After(@gui, "confirmNameButtonClicked", (name) => @useCase.nameProvided(name))
 ```

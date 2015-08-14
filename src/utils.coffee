@@ -1,4 +1,4 @@
-_.defaults this,
+_.defaults window,
   Before: (object, methodName, adviseMethod) ->
     YouAreDaBomb(object, methodName).before(adviseMethod)
   BeforeAnyCallback: (object, methodName, adviseMethod) ->

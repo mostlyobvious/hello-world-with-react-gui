@@ -1,8 +1,9 @@
-#<< utils
-#<< local_storage
-#<< use_case
-#<< gui
-#<< glue
+require('./utils')
+require('./local_storage')
+
+UseCase = require('./use_case')
+Gui     = require('./gui')
+Glue    = require('./glue')
 
 class App
   constructor: ->

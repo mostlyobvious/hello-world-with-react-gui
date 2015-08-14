@@ -28,3 +28,6 @@ class Gui
 
   hideGreetMessage: =>
     $(".greet-message").remove()
+
+
+module.exports = Gui

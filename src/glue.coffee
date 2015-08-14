@@ -10,3 +10,6 @@ class Glue
 
     LogAll(@useCase)
     LogAll(@gui)
+
+
+module.exports = Glue

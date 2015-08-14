@@ -13,3 +13,6 @@ class UseCase
 
   restart: =>
     @askForName()
+
+
+module.exports = UseCase
